@@ -10,190 +10,116 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>{
+class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-final List<Widget> _pages = [
-  HomeContent(),
-  HomeContent(),
-  HomeContent(),
-];
+  final List<Widget> _pages = [
+    HomeContent(),  // Home
+    SearchPage(),   // Search
+    ProfilePage(),  // Profile
+  ];
 
-void _onItemTapped(int index){
-  setState((){
-    _selectedIndex = index;
-  });
-}
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-@override
-Widget build(BuildContext context){
-  return Scaffold(
-    appBar: AppBar(title: const Text("ZTE")),
-    body: _pages[_selectedIndex],
-   
-  bottomNavigationBar: Container(
-  margin: EdgeInsets.only(bottom: 30, left: 25, right: 25),
-  width: 1,
-  decoration: BoxDecoration(
-    color: Colors.black,
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(30),
-      topRight: Radius.circular(30),
-      bottomRight: Radius.circular(30),
-      bottomLeft: Radius.circular(30),
-    ),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.grey,
-        blurRadius: 2,
-        spreadRadius: 0.1,
-        
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("ZTE")),
+      body: _pages[_selectedIndex],
+
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(bottom: 30, left: 25, right: 25),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 2,
+              spreadRadius: 0.1,
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.grey,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+              BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            ],
+          ),
+        ),
       ),
-    ],
-  ),
-
-  child: ClipRRect(
-    borderRadius: BorderRadius.circular(30),
-  child: BottomNavigationBar(
-    selectedItemColor: Colors.blue,
-    unselectedItemColor: Colors.grey,
-    items: const [
-      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-      BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-    ],
-  ),
-  )
-),
-  );
-}
+    );
+  }
 }
 
 class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-
-            const SizedBox(height: 180,),
-            SizedBox(
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HafidzPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: const Text("Hafidz",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                
-              ),
-            ),
-            const SizedBox(height: 20),
-
-
-
-            SizedBox(
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => FerryPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: const Text("Ferry",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-
-
-
-            SizedBox(
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => BayuPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: const Text("Bayu",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-
-
-            SizedBox(
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => FarellPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: const Text("Farell",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-
-
-
-            SizedBox(
-              width: 200,
-              height: 50,
-              
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ChrisPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                ),
-                child: const Text("Chris",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-          ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(height: 180),
           
+          _buildButton(context, "Hafidz", HafidzPage()),
+          _buildButton(context, "Ferry", FerryPage()),
+          _buildButton(context, "Bayu", BayuPage()),
+          _buildButton(context, "Farell", FarellPage()),
+          _buildButton(context, "Chris", ChrisPage()),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildButton(BuildContext context, String name, Widget page) {
+    return Column(
+      children: [
+        SizedBox(
+          width: 200,
+          height: 50,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+            ),
+            child: Text(
+              name,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          ),
         ),
-      );
-    
-   
+        const SizedBox(height: 20),
+      ],
+    );
   }
 }
 
+// Halaman Search (dummy)
+class SearchPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text("Search Page"));
+  }
+}
+
+// Halaman Profile (dummy)
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text("Profile Page"));
+  }
+}
