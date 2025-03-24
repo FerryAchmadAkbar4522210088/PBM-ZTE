@@ -5,7 +5,6 @@ import 'package:pbm/pages/farell.dart';
 import 'package:pbm/pages/ferry.dart';
 import 'package:pbm/pages/hafidz.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -15,9 +14,9 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    HomeContent(), 
-    SearchPage(),   
-    ProfilePage(),  
+    HomeContent(),
+    SearchPage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -29,30 +28,42 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: AppBar(title: const Text("ZTE")),
-      body: _pages[_selectedIndex],
-
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(bottom: 30, left: 25, right: 25),
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 2,
-              spreadRadius: 0.1,
+      extendBody: true, // Memastikan background mencakup seluruh layar
+      appBar: AppBar(
+        title: const Text("ZTE", style: TextStyle(color: Color(0xFFBFA181))),
+        backgroundColor: Color(0xFF0A1828),
+        iconTheme: IconThemeData(color: Color(0xFF178582)),
+        elevation: 0,
+      ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              "assets/up.png",
+              fit: BoxFit.cover,
             ),
-          ],
+          ),
+          Positioned.fill(
+            child: Container(color: Colors.black.withOpacity(0.8)), // Efek gelap
+          ),
+          Positioned.fill(
+            child: _pages[_selectedIndex],
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(left: 25, right: 25, bottom: 20),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: BottomNavigationBar(
+            backgroundColor: Color(0xFF0A1828).withOpacity(0.9),
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
-            selectedItemColor: Colors.blue,
-            unselectedItemColor: Colors.grey,
+            selectedItemColor: Color(0xFFBFA181),
+            unselectedItemColor: Color(0xFF178582),
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
@@ -73,7 +84,6 @@ class HomeContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 180),
-          
           _buildButton(context, "Hafidz", HafidzPage()),
           _buildButton(context, "Ferry", FerryPage()),
           _buildButton(context, "Bayu", BayuPage()),
@@ -95,12 +105,15 @@ class HomeContent extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => page));
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+              backgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+                side: BorderSide(color: Color(0xFFBFA181)),
+              ),
             ),
             child: Text(
               name,
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: TextStyle(color: Color(0xFFBFA181), fontSize: 20),
             ),
           ),
         ),
@@ -110,18 +123,16 @@ class HomeContent extends StatelessWidget {
   }
 }
 
-// Halaman Search (dummy)
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Search Page"));
+    return Center(child: Text("Search Page", style: TextStyle(color: Color(0xFFBFA181))));
   }
 }
 
-// Halaman Profile (dummy)
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Profile Page"));
+    return Center(child: Text("Profile Page", style: TextStyle(color: Color(0xFFBFA181))));
   }
 }
