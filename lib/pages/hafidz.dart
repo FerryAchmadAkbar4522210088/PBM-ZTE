@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // Pastikan ini sesuai dengan lokasi file HomePage
 
 class HafidzPage extends StatefulWidget {
   @override
@@ -7,13 +6,12 @@ class HafidzPage extends StatefulWidget {
 }
 
 class _HafidzPageState extends State<HafidzPage> {
-  int _selectedIndex = 1; // Atur indeks default ke halaman saat ini
+  int _selectedIndex = 1; 
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      // Jika Home diklik, kembali ke HomePage
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+      
+      Navigator.pop(context);
     }
     setState(() {
       _selectedIndex = index;
@@ -27,9 +25,13 @@ class _HafidzPageState extends State<HafidzPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Nama: Muhammad Hafidz Aulia"),
+            Text("Nama Lengkap: Muhammad Hafidz Aulia"),
+            Text("Nama Panggilan: Hafidz"),
             Text("NPM: 4522210063"),
+            Text("Jenis Kelamin: Laki - laki"),
+            Text("Nomor Telepon: 087876006020"),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // Pastikan ini sesuai dengan lokasi file HomePage
 
 class FarellPage extends StatefulWidget {
   @override
@@ -7,13 +6,12 @@ class FarellPage extends StatefulWidget {
 }
 
 class _FarellPageState extends State<FarellPage> {
-  int _selectedIndex = 1; // Atur indeks default ke halaman saat ini
+  int _selectedIndex = 1; 
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      // Jika Home diklik, kembali ke HomePage
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+      
+      Navigator.pop(context);
     }
     setState(() {
       _selectedIndex = index;
@@ -27,9 +25,13 @@ class _FarellPageState extends State<FarellPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Nama: Farell Rakha Rabbani Arian"),
+            Text("Nama Lengkap: Farell Rakha Rabbani Arian"),
+            Text("Nama Panggilan: Farell"),
             Text("NPM: 4522210096"),
+            Text("Jenis Kelamin: Laki - laki"),
+            Text("Nomor Telepon: 08999223611"),
           ],
         ),
       ),

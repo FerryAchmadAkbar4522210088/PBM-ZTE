@@ -6,9 +6,9 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pbm"
+    namespace = "com.example.flutter_application_1"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "26.1.10909125"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

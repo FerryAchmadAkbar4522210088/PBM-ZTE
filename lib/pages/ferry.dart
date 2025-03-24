@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // Pastikan ini sesuai dengan lokasi file HomePage
 
 class FerryPage extends StatefulWidget {
   @override
@@ -12,8 +11,7 @@ class _FerryPageState extends State<FerryPage> {
   void _onItemTapped(int index) {
     if (index == 0) {
       // Jika Home diklik, kembali ke HomePage
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pop(context);
     }
     setState(() {
       _selectedIndex = index;
@@ -27,9 +25,13 @@ class _FerryPageState extends State<FerryPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Nama: Ferry Achmad Akbar"),
-            Text("NPM: 4522210088"),
+            Text("Nama Lengkap    : Ferry Achmad Akbar"),
+            Text("Nama Panggilan  : Ferry"),
+            Text("NPM                      : 4522210088"),
+            Text("Jenis Kelamin     : Laki - laki"),
+            Text("Nomor Telepon   : 085728940074"),
           ],
         ),
       ),

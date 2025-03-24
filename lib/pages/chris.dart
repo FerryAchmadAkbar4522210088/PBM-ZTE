@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // Pastikan ini sesuai dengan lokasi file HomePage
 
 class ChrisPage extends StatefulWidget {
   @override
@@ -12,8 +11,7 @@ class _ChrisPageState extends State<ChrisPage> {
   void _onItemTapped(int index) {
     if (index == 0) {
       // Jika Home diklik, kembali ke HomePage
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pop(context);
     }
     setState(() {
       _selectedIndex = index;
@@ -27,9 +25,13 @@ class _ChrisPageState extends State<ChrisPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Nama: Christian Jonathan Kolinug"),
+            Text("Nama Lengkap: Christian Jonathan Kolinug"),
+            Text("Nama Panggilan: Christian Jonathan Kolinug"),
             Text("NPM: 4522210105"),
+            Text("Jenis Kelamin: Laki - laki"),
+            Text("Nomor Telepon: 082125062257"),
           ],
         ),
       ),
