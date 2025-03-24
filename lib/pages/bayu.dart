@@ -6,11 +6,11 @@ class BayuPage extends StatefulWidget {
 }
 
 class _BayuPageState extends State<BayuPage> {
-  int _selectedIndex = 1; // Atur indeks default ke halaman saat ini
+  int _selectedIndex = 1; 
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      // Jika Home diklik, kembali ke HomePage
+      
       Navigator.pop(context);
     }
     setState(() {

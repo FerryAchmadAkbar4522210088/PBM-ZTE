@@ -6,11 +6,11 @@ class ChrisPage extends StatefulWidget {
 }
 
 class _ChrisPageState extends State<ChrisPage> {
-  int _selectedIndex = 1; // Atur indeks default ke halaman saat ini
+  int _selectedIndex = 1; 
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      // Jika Home diklik, kembali ke HomePage
+      
       Navigator.pop(context);
     }
     setState(() {
@@ -28,7 +28,7 @@ class _ChrisPageState extends State<ChrisPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Text("Nama Lengkap: Christian Jonathan Kolinug"),
-            Text("Nama Panggilan: Christian Jonathan Kolinug"),
+            Text("Nama Panggilan: Chris"),
             Text("NPM: 4522210105"),
             Text("Jenis Kelamin: Laki - laki"),
             Text("Nomor Telepon: 082125062257"),
