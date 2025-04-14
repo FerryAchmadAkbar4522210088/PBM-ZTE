@@ -54,7 +54,7 @@ class _ChrisPageState extends State<ChrisPage> {
                     border: Border.all(color: Color(0xFF0A1828), width: 4),
                   ),
                   child: ClipOval(
-                    child: Image.asset("assets/profile.jpeg", fit: BoxFit.cover),
+                    child: Image.asset("assets/chriss.jpeg", fit: BoxFit.cover),
                   ),
                 ),
                 SizedBox(height: 20),

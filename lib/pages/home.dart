@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, // Memastikan background mencakup seluruh layar
+      extendBody: true,
       appBar: AppBar(
         title: const Text("ZTE", style: TextStyle(color: Color(0xFFBFA181))),
         backgroundColor: Color(0xFF0A1828),
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.8)), // Efek gelap
+            child: Container(color: Colors.black.withOpacity(0.8)), 
           ),
           Positioned.fill(
             child: _pages[_selectedIndex],

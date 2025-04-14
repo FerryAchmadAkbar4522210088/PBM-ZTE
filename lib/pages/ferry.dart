@@ -54,7 +54,7 @@ class _FerryPageState extends State<FerryPage> {
                     border: Border.all(color: Color(0xFF0A1828), width: 4),
                   ),
                   child: ClipOval(
-                    child: Image.asset("assets/profile.jpeg", fit: BoxFit.cover),
+                    child: Image.asset("assets/ferry.jpeg", fit: BoxFit.cover),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -89,7 +89,7 @@ class _FerryPageState extends State<FerryPage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: BottomNavigationBar(
-            backgroundColor: Color(0xFF0A1828).withOpacity(0.8), // Transparan agar menyatu dengan background
+            backgroundColor: Color(0xFF0A1828).withOpacity(0.8), 
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             selectedItemColor: Color(0xFFBFA181),

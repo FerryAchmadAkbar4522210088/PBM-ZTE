@@ -20,7 +20,7 @@ class _HafidzPageState extends State<HafidzPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, // Pastikan body diperpanjang ke belakang navbar
+      extendBody: true, 
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text("Profil Hafidz", style: TextStyle(color: Color(0xFFBFA181))),
@@ -30,18 +30,18 @@ class _HafidzPageState extends State<HafidzPage> {
       ),
       body: Stack(
         children: [
-          // Background Image
+          
           Positioned.fill(
             child: Image.asset(
               "assets/up.png",
               fit: BoxFit.cover,
             ),
           ),
-          // Overlay hitam transparan
+          
           Positioned.fill(
             child: Container(color: Colors.black.withOpacity(0.8)),
           ),
-          // Konten Tengah
+          
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,7 @@ class _HafidzPageState extends State<HafidzPage> {
                     border: Border.all(color: Color(0xFF0A1828), width: 4),
                   ),
                   child: ClipOval(
-                    child: Image.asset("assets/profile.jpeg", fit: BoxFit.cover),
+                    child: Image.asset("assets/hafidz.jpeg", fit: BoxFit.cover),
                   ),
                 ),
                 SizedBox(height: 20),
