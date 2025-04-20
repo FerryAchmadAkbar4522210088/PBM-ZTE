@@ -4,6 +4,7 @@ import 'package:pbm/pages/chris.dart';
 import 'package:pbm/pages/farell.dart';
 import 'package:pbm/pages/ferry.dart';
 import 'package:pbm/pages/hafidz.dart';
+import 'package:pbm/pages/kesanpesan.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -89,6 +90,7 @@ class HomeContent extends StatelessWidget {
           _buildButton(context, "Bayu", BayuPage()),
           _buildButton(context, "Farell", FarellPage()),
           _buildButton(context, "Chris", ChrisPage()),
+          _buildButton(context, "Kesan & Pesan", KesanPesanPage()),
         ],
       ),
     );
