@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class KesanPesanPage extends StatefulWidget {
   @override
@@ -24,18 +26,47 @@ class _KesanPesanPageState extends State<KesanPesanPage> {
     });
   }
 
-  void _submitForm() {
+  // --- FUNCTION: Submit ke API ---
+  Future<void> _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      setState(() {
-        _listPesan.add({
-          "nama": _namaController.text,
-          "alamat": _alamatController.text,
-          "pesan": _pesanController.text,
-        });
-        _namaController.clear();
-        _alamatController.clear();
-        _pesanController.clear();
-      });
+      try {
+        var url = Uri.parse('http://localhost/Belajar_Flutter/PBM-ZTE_github/database/kesanpesan.php');
+        var response = await http.post(
+          url,
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({
+            'nama': _namaController.text,
+            'alamat': _alamatController.text,
+            'kesanpesan': _pesanController.text,
+          }),
+        );
+
+        print('Response body: ${response.body}');
+
+        var result = json.decode(response.body);
+
+        if (result['success']) {
+          setState(() {
+            // Bersihkan form dan list
+            _namaController.clear();
+            _alamatController.clear();
+            _pesanController.clear();
+            _listPesan.clear();
+          });
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Data berhasil dikirim!')),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Gagal kirim data: ${result['message']}')),
+          );
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+      }
     }
   }
 

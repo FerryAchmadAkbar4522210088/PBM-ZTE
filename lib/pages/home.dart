@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     HomeContent(),
-    SearchPage(),
+    KesanPesanPage(),
     ProfilePage(),
   ];
 
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             unselectedItemColor: Color(0xFF178582),
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+              BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: "Kesan & Pesan"),
               BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
             ],
           ),
@@ -122,13 +122,6 @@ class HomeContent extends StatelessWidget {
         const SizedBox(height: 20),
       ],
     );
-  }
-}
-
-class SearchPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Search Page", style: TextStyle(color: Color(0xFFBFA181))));
   }
 }
 
