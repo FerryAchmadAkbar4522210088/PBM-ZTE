@@ -26,11 +26,10 @@ class _KesanPesanPageState extends State<KesanPesanPage> {
     });
   }
 
-  // --- FUNCTION: Submit ke API ---
   Future<void> _submitForm() async {
     if (_formKey.currentState!.validate()) {
       try {
-        var url = Uri.parse('http://localhost/Belajar_Flutter/PBM-ZTE_github/database/kesanpesan.php');
+        var url = Uri.parse('http://192.168.242.1/Belajar_Flutter/PBM-ZTE_github/database/kesanpesan.php');
         var response = await http.post(
           url,
           headers: {'Content-Type': 'application/json'},
@@ -44,10 +43,10 @@ class _KesanPesanPageState extends State<KesanPesanPage> {
         print('Response body: ${response.body}');
 
         var result = json.decode(response.body);
-
+  
         if (result['success']) {
           setState(() {
-            // Bersihkan form dan list
+            
             _namaController.clear();
             _alamatController.clear();
             _pesanController.clear();

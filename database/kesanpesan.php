@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Cek koneksi database
+
 $conn = new mysqli("localhost", "root", "", "flutter_teori");
 
 if ($conn->connect_error) {
@@ -9,21 +9,21 @@ if ($conn->connect_error) {
     exit();
 }
 
-// Ambil data dari body
+
 $data = json_decode(file_get_contents("php://input"));
 
-// Kalau gak ada data
+
 if (!$data) {
     echo json_encode(["success" => false, "message" => "Tidak ada data yang dikirim"]);
     exit();
 }
 
-// Cek data
+
 $nama = $data->nama ?? null;
 $alamat = $data->alamat ?? null;
 $kesanpesan = $data->kesanpesan ?? null;
 
-// Validasi
+// 
 if (!$nama || !$alamat || !$kesanpesan) {
     echo json_encode(["success" => false, "message" => "Data kurang lengkap"]);
     exit();

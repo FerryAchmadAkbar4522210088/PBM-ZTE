@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.8)), 
+            child: Container(color: Colors.black.withOpacity(0.8)),
           ),
           Positioned.fill(
             child: _pages[_selectedIndex],
@@ -85,11 +85,11 @@ class HomeContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 180),
-          _buildButton(context, "Hafidz", HafidzPage()),
-          _buildButton(context, "Ferry", FerryPage()),
-          _buildButton(context, "Bayu", BayuPage()),
-          _buildButton(context, "Farell", FarellPage()),
-          _buildButton(context, "Chris", ChrisPage()),
+          _buildButton(context, "Hafidz", HafidzPage(namaPanggilan: "Hafidz")),
+          _buildButton(context, "Ferry", FerryPage(namaPanggilan: "Ferry")),
+          _buildButton(context, "Bayu", BayuPage(namaPanggilan: "Bayu")),
+          _buildButton(context, "Farell", FarellPage(namaPanggilan: "Farell")),
+          _buildButton(context, "Chris", ChrisPage(namaPanggilan: "Chris")),
           _buildButton(context, "Kesan & Pesan", KesanPesanPage()),
         ],
       ),
